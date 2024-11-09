@@ -16,7 +16,8 @@ def load_jobs():
         jobs = []
         for row in result:
             # print(row._mapping)
-            jobs.append(row._mapping)
+
+            jobs.append(dict(row._mapping))
         # print(type(jobs))
         return jobs
     # print(jobs)
@@ -27,6 +28,6 @@ def load_jobs_from_db(id):
         rows = result.all()
         if len(rows) == 0:
             return None
-        return rows[0]._mapping
+        return dict(rows[0]._mapping)
 
 

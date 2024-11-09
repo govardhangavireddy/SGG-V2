@@ -1,9 +1,12 @@
 # import sqlalchemy
 # print(sqlalchemy.__version__)
-
+import os
 from sqlalchemy import create_engine, text
+
 #connect to localhost database
-engine = create_engine('mysql+pymysql://root:govardhan96@127.0.0.1:3306/applications')
+db_connection_str = os.environ.get('DB_CONNECT')
+
+engine = create_engine(db_connection_str)
 
 def load_jobs():
     with engine.connect() as connection:
@@ -12,8 +15,6 @@ def load_jobs():
         for row in result:
             # print(row._mapping)
             jobs.append(row._mapping)
-        # print(type(result.first()))
-        # return result_dict
         return jobs
 
 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<div class="container">
+  <h3>Application form</h3>
+  <form action="/job/{{job['id']}}/apply" method="post">
+    <div class="container mb-4">
+      <div class="row">
+        <div class="col-3 me-4">
+          <div class="me-4">
+            <label for="first_name"><h5>First Name</h5></label><br />
+            <input type="text" name="first_name" placeholder="David" />
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="container me-4">
+            <label for="last_name"><h5>Last Name</h5></label><br />
+            <input type="text" name="last_name" placeholder="Mills" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mb-4">
+      <label for="email"><h5>Email</h5></label><br />
+      <input type="email" name="email" placeholder="davidmills7@gmail.com" />
+    </div>
+    <div class="container mb-4">
+      <label for="phone"><h5>Phone Number</h5></label><br />
+      <input type="text" name="phone" placeholder="1234567890" />
+    </div>
+    <div class="container mb-2">
+      <label for="education"><h5>Education</h5></label><br />
+      <textarea name="education"></textarea>
+    </div>
+    <div class="container mb-4">
+      <label for="work_experience"><h5>Work Experience</h5></label><br />
+      <textarea name="work_experience"></textarea>
+    </div>
+    <div class="container mb-4">
+      <label for="linkedin_url"><h5>LinkedIn URL</h5></label><br />
+      <input
+        type="text"
+        name="linkedin_url"
+        placeholder="https://www.linkedin.com/in/davidmills"
+      />
+    </div>
+    <div class="container mb-4">
+      <label for="resume_url"><h5>Resume</h5></label><br />
+      <input type="text" name="resume_url" /><br />
+    </div>
+    <div class="container">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

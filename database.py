@@ -3,7 +3,6 @@
 import os
 from sqlalchemy import create_engine, text
 
-from flask import jsonify
 
 #connect to localhost database
 db_connection_str = os.environ.get('DB_CONNECTION')
@@ -28,6 +27,16 @@ def load_jobs_from_db(id):
         rows = result.all()
         if len(rows) == 0:
             return None
+        
+        # print(rows[0]._mapping)
         return dict(rows[0]._mapping)
+    
+def add_application_to_db(job_id,application):
+    with engine.connect() as connection:
+        connection.execute(text("insert into applications(job_id,first_name,last_name,email,phone,education,work_experience,linkedin_url,resume_link) values (:job_id,:first_name,:last_name,:email,:phone_number,:education,:work_experience,:linkedin_url,:resume)"),{"job_id":job_id,"first_name":application['first_name'],"last_name":application['last_name'],"email":application['email'],"phone_number":application['phone'],'education':application['education'],'work_experience':application['work_experience'],'linkedin_url':application['linkedin_url'],'resume':application['resume_url']})
+
+
+
+
 
 

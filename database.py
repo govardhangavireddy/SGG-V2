@@ -4,7 +4,7 @@ import os
 from sqlalchemy import create_engine, text
 
 #connect to localhost database
-db_connection_str = os.environ.get('DB_CONNECT')
+db_connection_str = os.environ.get('DB_CONNECTION')
 
 engine = create_engine(db_connection_str)
 
@@ -16,5 +16,6 @@ def load_jobs():
             # print(row._mapping)
             jobs.append(row._mapping)
         return jobs
+    # print(jobs)
 
 

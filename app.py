@@ -11,8 +11,7 @@ def home():
 
 @app.route('/api/jobs')
 def list_jobs():
-    jobs = load_jobs()
-    return jsonify(jobs)
+    return jsonify(load_jobs)
 
 # @app.route('/job/<id>')
 # def specific_job(id):
